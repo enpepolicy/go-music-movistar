@@ -1,35 +1,22 @@
 <template lang="html">
-  <v-layout column >
-    <h1 >Movistar Go Music</h1>
-      <v-tabs show-arrows dark grow slider-color="white">
-        <v-tab to="/" >
-          Home
-        </v-tab>
-        <v-tab to="/registro">
-          Registro
-        </v-tab>
-        <v-tab to="/suscripcion">
-          Suscripción
-        </v-tab>
-        <v-tab to="/login">
-          Login
-        </v-tab>
-        <v-tab to = "#">
-          Vista 4
-        </v-tab>
-      </v-tabs>
-  </v-layout>
-</template>
+  <v-app-bar
+  color='#00A9E0'
+  dark>
+    <v-spacer></v-spacer>
 
+    <v-toolbar-title>emocion</v-toolbar-title>
+
+    <v-spacer></v-spacer>
+  </v-app-bar>
+</template>
 <script>
 export default {
 }
 </script>
 
 <style lang="css" scoped>
-h1{
-  background-color: #d9527d;
-  text-align: center;
-  color: white;
+.v-toolbar__title{
+  font-size: 1.5em;
+  font-weight: 500;
 }
 </style>

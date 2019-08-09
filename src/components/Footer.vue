@@ -1,41 +1,37 @@
 <template lang="html">
     <v-footer
       :padless="padless"
+      color="#00A9E0"
+
     >
-      <v-card
-        flat
-        tile
-        width="100%"
-        class="orange lighten-2 text-center"
-      >
-        <v-card-text>
-          <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4"
-            icon
-          >
-            <v-icon size="24px">{{ icon }}</v-icon>
-          </v-btn>
-        </v-card-text>
+      <v-layout column justify-center ma-5>
 
-        <v-divider></v-divider>
+        <v-img
+          :src="require('../assets/texto_pie_new.png')"
+          alt="Logo Movistar"
+          contain
+          height="30"
+          id="movistar"
+        />
 
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Go Music</strong>
-        </v-card-text>
-      </v-card>
+        <v-layout justify-space-around row mx-auto >
+          <a href="#">¿Qué es Emoción?</a>
+          <p>|</p>
+          <a href="#">Mis suscripciones</a>
+          <p>|</p>
+          <a href="#">Ayuda</a>
+        </v-layout>
+      </v-layout>
+
+
+
+
     </v-footer>
 </template>
 
 <script>
 export default {
     data: () => ({
-      icons: [
-        'home',
-        'event',
-        'delete',
-      ],
       padless: true,
       variant: 'default',
     }),
@@ -45,4 +41,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+a, p{
+  color: white;
+  text-decoration: none;
+}
+#movistar{
+  margin-top: 1em;
+  margin-bottom: 2em
+}
 </style>
