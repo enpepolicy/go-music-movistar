@@ -1,5 +1,5 @@
 <template lang="html">
-      <v-tabs show-arrows dark grow slider-color="white">
+      <v-tabs show-arrows dark grow slider-color="white" background-color="transparent">
         <v-tab to="/" >
           Home
         </v-tab>
