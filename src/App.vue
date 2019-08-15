@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Header from './components/Header'
+import Header from './components/Header' 
 import HeaderServicio from './components/Header-Servicio'
 import Footer from './components/Footer'
 import FooterServicio from './components/Footer-Servicio'
