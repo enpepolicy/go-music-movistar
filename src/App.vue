@@ -7,7 +7,7 @@
 
     <v-layout justify-center column fill-height ma-5>
       <router-view />
-    </v-layout  >
+    </v-layout>
 
     <FooterServicio/>
     <Footer/>
@@ -17,7 +17,7 @@
 <script>
 import Header from './components/Header' 
 import HeaderServicio from './components/Header-Servicio'
-import Footer from './components/Footer'
+import Footer from './components/Footer' 
 import FooterServicio from './components/Footer-Servicio'
 import Nav from './components/Nav'
 
