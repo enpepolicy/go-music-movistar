@@ -3,9 +3,6 @@
         <v-tab to="/" >
           Home
         </v-tab>
-        <v-tab to="/registro">
-          Registro
-        </v-tab>
         <v-tab to="/suscripcion-envio">
           Envio de Suscripción
         </v-tab>
@@ -15,11 +12,14 @@
         <v-tab to = "/user-logged">
           Loggued User
         </v-tab>
-        <v-tab to = "/vista-extra-1">
-          Vista 1
+        <v-tab to = "/Aviso-Legal-Servicio">
+          Aviso Legal de Servicio
         </v-tab>
-        <v-tab to = "/vista-extra-2">
-          Vista 2
+        <v-tab to = "/Condiciones-Servicio">
+          Condiciones de Servicio
+        </v-tab>
+        <v-tab to = "/Politica-Cookies">
+          Politica de Cookies
         </v-tab>
       </v-tabs>
 </template>

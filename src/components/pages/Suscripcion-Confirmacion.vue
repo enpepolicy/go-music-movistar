@@ -1,5 +1,5 @@
 <template lang="html">
-    <h1>Acá recibimos los datos que confirman la suscripcion</h1>
+    <h1>Acá recibimos los datos que confirman la suscripcion (Pagina 23)</h1>
 </template>
 
 <script>
