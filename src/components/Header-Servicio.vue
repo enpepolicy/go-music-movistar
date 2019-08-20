@@ -5,14 +5,15 @@
   flat
   >
     <v-spacer></v-spacer>
-    <v-layout column justify-center >
-
-      <v-img
-        :src="require('../assets/gmlogo.svg')"
-        alt="Logo Go Music"
-        contain
-        height="45"
-      />
+    <v-layout column justify-center>
+      <router-link to="/">
+        <v-img
+          :src="require('../assets/gmlogo.svg')"
+          alt="Logo Go Music"
+          contain
+          height="9vh"
+        />
+      </router-link>
     </v-layout>
 
     <v-spacer></v-spacer>

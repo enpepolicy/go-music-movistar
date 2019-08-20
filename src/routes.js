@@ -9,9 +9,6 @@ import UserLogged from './components/pages/User-Logged'
 import CondicionesServicio from './components/pages/Condiciones-Servicio'
 import PoliticaCookies from './components/pages/Politica-Cookies'
 import AvisoLegalServicio from './components/pages/Aviso-Legal-Servicio'
-
-
-
 import ERR404 from './components/pages/ERR404'
 
 Vue.use(Router)

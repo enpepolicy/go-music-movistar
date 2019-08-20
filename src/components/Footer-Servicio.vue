@@ -8,11 +8,11 @@
         <p id="gomusic">Go Music</p>
 
         <v-layout justify-space-around row mx-auto >
-          <a href="#">Condiciones del servicio</a>
+          <router-link to="/Condiciones-Servicio">Condiciones del servicio</router-link>
           <p>|</p>
-          <a href="#">Aviso legal</a>
+          <router-link to="/Aviso-Legal-Servicio">Aviso legal</router-link>
           <p>|</p>
-          <a href="#">Política de cookies</a>
+          <router-link to="/Politica-Cookies">Política de cookies</router-link>
         </v-layout>
       </v-layout>
 

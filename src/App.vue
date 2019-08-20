@@ -9,7 +9,7 @@
       <router-view />
     </v-layout>
 
-    <FooterServicio/>
+    <FooterServicio v-if="pagina != '/suscripcion-envio' "/>
     <Footer/>
   </v-app>
 </template>
@@ -30,9 +30,16 @@ export default {
     HeaderServicio,
     FooterServicio
   },
-  data: () => ({
-    //
-  }),
+  data: function() {
+		return {
+			pagina: ""
+		};
+	},
+  beforeUpdate: 
+    function(){
+      this.pagina = window.location.pathname
+    }
+  
 };
 </script>
 
