@@ -5,7 +5,6 @@ import Router from 'vue-router'
 import Home from './components/pages/Home'
 import SuscripcionEnvio from './components/pages/Suscripcion-Envio'
 import SuscripcionConfirmacion from './components/pages/Suscripcion-Confirmacion'
-import UserLogged from './components/pages/User-Logged'
 import CondicionesServicio from './components/pages/Condiciones-Servicio'
 import PoliticaCookies from './components/pages/Politica-Cookies'
 import AvisoLegalServicio from './components/pages/Aviso-Legal-Servicio'
@@ -44,11 +43,6 @@ export default new Router({
       path: '/Suscripcion-Confirmacion',
       name: 'Suscripcion-Confirmacion',
       component: SuscripcionConfirmacion
-    },
-    {
-      path: '/User-Logged',
-      name: 'User-Logged',
-      component: UserLogged
     },
     {
       path: '*',

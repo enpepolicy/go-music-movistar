@@ -1,16 +1,13 @@
 <template lang="html">
       <v-tabs show-arrows dark grow slider-color="white" background-color="transparent">
         <v-tab to="/" >
-          Home (case 1)
-        </v-tab>
-        <v-tab to = "/user-logged">
-          Loggued User (case 2)
+          Pagina de Presentacion (3.3.3)
         </v-tab>
         <v-tab to="/suscripcion-envio">
-          Envio de Suscripción
+          Envio de Suscripción (3.3.4)
         </v-tab>
         <v-tab to="/suscripcion-confirmacion">
-          Confirmacion de Suscripción
+          Confirmacion de Suscripción (3.3.5)
         </v-tab>
         <v-tab to = "/Aviso-Legal-Servicio">
           Aviso Legal de Servicio
