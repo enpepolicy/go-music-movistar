@@ -11,7 +11,7 @@
           :src="require('../assets/gmlogo.svg')"
           alt="Logo Go Music"
           contain
-          height="9vh"
+          height="3em"
         />
       </router-link>
     </v-layout>
@@ -26,5 +26,8 @@ export default {
 
 <style lang="css" scoped>
 .v-toolbar__content{
+}
+header{
+
 }
 </style>

@@ -1,11 +1,10 @@
 <template lang="html">
   <v-app-bar
   color='#00A9E0'
-  dark>
+  dark
+  >
     <v-spacer></v-spacer>
-
     <v-toolbar-title>emocion</v-toolbar-title>
-
     <v-spacer></v-spacer>
   </v-app-bar>
 </template>

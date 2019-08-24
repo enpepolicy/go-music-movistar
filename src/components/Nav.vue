@@ -1,7 +1,7 @@
 <template lang="html">
       <v-tabs show-arrows dark grow slider-color="white" background-color="transparent">
         <v-tab to="/" >
-          Pagina de Presentacion (3.3.3)
+          Portada de Presentacion (3.3.3)
         </v-tab>
         <v-tab to="/suscripcion-envio">
           Envio de Suscripción (3.3.4)
