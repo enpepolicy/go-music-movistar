@@ -10,6 +10,39 @@
       </v-fade-transition>
     </v-container>
 
+    <v-dialog
+
+    width="90vw"
+      v-model="dialog"
+    >
+
+      <v-card dark>
+        <v-card-title
+          class="headlinelighten-2"
+          primary-title
+        >
+        <v-row justify="space-between">
+        <span class="pl-4">Aviso de cookies</span>
+
+          <v-btn
+            color="primary"
+            text
+            @click="dialog = false"
+          >
+          <v-spacer/>
+            <v-icon>mdi-close</v-icon>
+
+          </v-btn>
+        </v-row>
+        </v-card-title>
+
+        <v-card-text class="mt-3">
+          “Utilizamos cookies propias y de terceros para mejorar el servicio y mostrarte publicidad personalizada basada en tu navegación. Si continuas navegando, aceptarás su uso. Más info o cambio de configuración <a  :href="`${publicPath}cookies.pdf`" target="_blank">aqui</a>”
+        </v-card-text>
+
+      </v-card>
+    </v-dialog>
+
     <FooterServicio v-if="pagina != '/suscripcion-envio' "/>
     <Footer/>
   </v-app>
@@ -33,7 +66,9 @@ export default {
   },
   data: function() {
 		return {
-			pagina: ""
+			pagina: "",
+      dialog: true,
+      publicPath: process.env.BASE_URL
 		};
 	},
   beforeUpdate:
@@ -56,5 +91,9 @@ h1{
   background-position: center center;
 
 }
-
+.v-dialog {
+  position: absolute;
+top: 0;
+left:0
+}
 </style>
