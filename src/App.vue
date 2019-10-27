@@ -70,12 +70,28 @@ export default {
       dialog: true,
       publicPath: process.env.BASE_URL
 		};
-	},
-  beforeUpdate:
-    function(){
-      this.pagina = window.location.pathname
-    }
-
+  },
+  methods: {
+    // exitPopUp(event){
+    //   console.log(onmobile.onBilling(event))
+    // }
+  },
+  beforeUpdate: function(){
+    this.pagina = window.location.pathname
+    
+    return onmobile.onBilling(event) // 
+  },
+  updated: ()=>{
+    console.log({
+      "updated hook cookie _om2uid":`${$cookies.get('_om2uid')}`,
+      "updated hook cookie _om2rw":`${$cookies.get('_om2rw')}`
+    }) 
+    
+    console.log('updated onmoblie.onBilling(event) function:', onmobile.onBilling(event))
+  },
+  created: ()=>{
+    console.log('created onmoblie.onBilling(event) function:', onmobile.onBilling(event))
+  }
 };
 </script>
 

@@ -5,8 +5,11 @@ import router from './routes'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 import vuetify from './plugins/vuetify';
+import VueCookies from 'vue-cookies'
 
 
+
+Vue.use(VueCookies)
 Vue.use(Vuetify, {
 iconfont: 'md' // 'md' || 'mdi' || 'fa' || 'fa4'
 })
