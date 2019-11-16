@@ -80,25 +80,34 @@ export default {
   },
   beforeUpdate: function(){
     this.pagina = window.location.pathname
-    
-    return onmobile.onBilling(event) // 
+
+    return onmobile.onBilling(event) //
   },
   updated: ()=>{
     console.log({
       "updated hook cookie _om2uid":`${$cookies.get('_om2uid')}`,
       "updated hook cookie _om2rw":`${$cookies.get('_om2rw')}`,
       "updated hook cookie _om2ra":`${$cookies.get('_om2ra')}`
-    }) 
-    
+    })
+
     console.log('updated onmoblie.onBilling(event) function:', onmobile.onBilling(event))
 
-    axios.get(`https://emocionwifi.movistar.es/v2-0-0/user/?apiKey=269&cred.token=${$cookies.get('_om2ra')}&Type=json`)
+    axios.get(`https://emocionwifi.movistar.es/https/user/?apiKey=269&cred.token=${$cookies.get('_om2ra')}&Type=json`)
     .then(response =>{
       console.log("Updated hook decripted user (or not) from _om2ra:",response.data)
     })
     .catch(function(error){
       console.log("Updated hook decrypt error:", error)
     })
+
+    axios.get('https://emocionwifi.movistar.es/https/user?apiKey=269&cred.token=1hZGAKw4O6g5shH6X1jpdQ&Type=json')
+    .then(response =>{
+      console.log("Llamada a desencriptar para Esteban:",response.data)
+    })
+    .catch(function(error){
+      console.log("Updated hook decrypt error:", error)
+    })
+
   },
   created: ()=>{
     console.log('created onmoblie.onBilling(event) function:', onmobile.onBilling(event))
@@ -106,7 +115,7 @@ export default {
       "created hook cookie _om2uid":`${$cookies.get('_om2uid')}`,
       "created hook cookie _om2rw":`${$cookies.get('_om2rw')}`,
       "created hook cookie _om2ra":`${$cookies.get('_om2ra')}`,
-    }) 
+    })
   }
 };
 </script>
