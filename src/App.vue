@@ -6,10 +6,11 @@
 
     <v-container fill-height class="align-start">
       <v-fade-transition mode="out-in">
-        <router-view></router-view>
+        <router-view/>
       </v-fade-transition>
     </v-container>
 
+    <!-- Meter boton aceptar -->
     <v-dialog
 
     width="90vw"
@@ -31,7 +32,6 @@
           >
           <v-spacer/>
             <v-icon>mdi-close</v-icon>
-
           </v-btn>
         </v-row>
         </v-card-title>
@@ -39,6 +39,9 @@
         <v-card-text class="mt-3">
           “Utilizamos cookies propias y de terceros para mejorar el servicio y mostrarte publicidad personalizada basada en tu navegación. Si continuas navegando, aceptarás su uso. Más info o cambio de configuración <a  :href="`${publicPath}cookies.pdf`" target="_blank">aqui</a>”
         </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" @click="dialog = false">Aceptar</v-btn>
+        </v-card-actions>
 
       </v-card>
     </v-dialog>
@@ -55,7 +58,8 @@ import Footer from './components/Footer'
 import FooterServicio from './components/Footer-Servicio'
 import Nav from './components/Nav'
 
-import axios from 'axios'
+import { mapMutations } from 'vuex'
+// import axios from 'axios'
 
 export default {
   name: 'App',
@@ -67,55 +71,56 @@ export default {
     FooterServicio
   },
   data: function() {
-		return {
-			pagina: "",
+    return {
+      payload: {
+        isAutenticated: false,
+        isSubscribed: false,
+        error: false
+      },
+      infos: [],
+      pagina: "",
       dialog: true,
       publicPath: process.env.BASE_URL
-		};
+    }
   },
   methods: {
-    // exitPopUp(event){
-    //   console.log(onmobile.onBilling(event))
+    ...mapMutations([
+      'ACTUALIZA_USUARIO'
+    ]),
+    // exitPopUp(){
+    //   console.log("cierre pop up")
     // }
   },
   beforeUpdate: function(){
     this.pagina = window.location.pathname
-
-    return onmobile.onBilling(event) //
   },
-  updated: ()=>{
-    console.log({
-      "updated hook cookie _om2uid":`${$cookies.get('_om2uid')}`,
-      "updated hook cookie _om2rw":`${$cookies.get('_om2rw')}`,
-      "updated hook cookie _om2ra":`${$cookies.get('_om2ra')}`
-    })
+  updated: function(){
 
-    console.log('updated onmoblie.onBilling(event) function:', onmobile.onBilling(event))
+      // Testing sin peticion de estado
+      // this.payload.isAutenticated = true;
+      // this.payload.isSubscribed = true;
+      // this.payload.error = true;
+      // // console.log(this.payload);
+      // this.ACTUALIZA_USUARIO(this.payload)
 
-    axios.get(`https://emocionwifi.movistar.es/https/user/?apiKey=269&cred.token=${$cookies.get('_om2ra')}&Type=json`)
-    .then(response =>{
-      console.log("Updated hook decripted user (or not) from _om2ra:",response.data)
-    })
-    .catch(function(error){
-      console.log("Updated hook decrypt error:", error)
-    })
 
-    axios.get('https://emocionwifi.movistar.es/https/user?apiKey=269&cred.token=1hZGAKw4O6g5shH6X1jpdQ&Type=json')
-    .then(response =>{
-      console.log("Llamada a desencriptar para Esteban:",response.data)
+    axios.get('https://emocion.gomusic.eu/api/v1/storeCookie')
+    .then(function (response) {
+      // handle success
+      this.payload.isAutenticated = response.data.isAutenticated;
+      this.payload.isSubscribed = response.data.isSubscribed;
+      this.payload.error = response.data.error;
+      // console.log(response);
+      this.ACTUALIZA_USUARIO(this.payload)
     })
-    .catch(function(error){
-      console.log("Updated hook decrypt error:", error)
+    .catch(function (error) {
+      // handle error
+      // console.log(error);
     })
+    .finally(function () {
+      // always executed
+    });
 
-  },
-  created: ()=>{
-    console.log('created onmoblie.onBilling(event) function:', onmobile.onBilling(event))
-    console.log({
-      "created hook cookie _om2uid":`${$cookies.get('_om2uid')}`,
-      "created hook cookie _om2rw":`${$cookies.get('_om2rw')}`,
-      "created hook cookie _om2ra":`${$cookies.get('_om2ra')}`,
-    })
   }
 };
 </script>

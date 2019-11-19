@@ -31,11 +31,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  data: function () {
+  data: function(){
     return {
-      suscription: true
     }
+  },
+  computed: {
+    ...mapState([
+      'isAutenticated',
+      'isSubscribed',
+      'error'
+    ])
   }
 }
 </script>

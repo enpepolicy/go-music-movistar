@@ -8,9 +8,12 @@ import SuscripcionConfirmacion from './components/pages/Suscripcion-Confirmacion
 import CondicionesServicio from './components/pages/Condiciones-Servicio'
 import PoliticaCookies from './components/pages/Politica-Cookies'
 import AvisoLegalServicio from './components/pages/Aviso-Legal-Servicio'
+import ApagaWifi from './components/pages/Apaga-Wifi'
 import ERR404 from './components/pages/ERR404'
 
 Vue.use(Router)
+
+
 
 export default new Router({
   routes: [
@@ -18,6 +21,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/Apaga-Wifi',
+      name: 'Apaga-Wifi',
+      component: ApagaWifi
     },
     {
       path: '/Aviso-Legal-Servicio',

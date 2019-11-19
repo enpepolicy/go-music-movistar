@@ -2,7 +2,7 @@
   <v-row >
 
     <v-col
-      v-if="suscription"
+      v-if="isSubscribed"
       cols="12">
       <v-card
       dark>
@@ -18,7 +18,7 @@
     </v-col>
 
     <v-col
-    v-if="!suscription"
+    v-if="!isSubscribed"
     cols="12">
       <v-card
       dark>
@@ -39,11 +39,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  data: function () {
+  data: function(){
     return {
-      suscription: true
     }
+  },
+  computed: {
+    ...mapState([
+      'isAutenticated',
+      'isSubscribed',
+      'error'
+    ])
   }
 }
 </script>
