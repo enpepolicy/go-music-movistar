@@ -18,6 +18,14 @@ Vue.config.productionTip = false
 
 
 
+// router.beforeEach((to, from, next) => {
+//   if (store.state.error) next('/Apaga-Wifi')
+//   else next()
+//   // next(console.log(store.state.error))
+//   console.log(store.state.error)
+//   // router.push('Apaga-Wifi')
+// })
+
 // Comprobacion de error para mandar a Apagar Wifi
 // router.afterEach((to, from, next) => {
 //   if (store.state.error) next('/Apaga-Wifi')

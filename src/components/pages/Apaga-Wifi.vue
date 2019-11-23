@@ -1,7 +1,21 @@
 <template>
-  <h1>
-      Apaga el wifi
-  </h1>
+  <v-row justify="center">
+    <v-col cols="10" class="text-center">
+      <h1 >
+          Apaga el wifi y vuelve a intentar.<br>
+          <v-icon dark size="100">mdi-wifi-off</v-icon>
+      </h1>
+      <v-btn class="my-5" color="primary" href="https://emocion.gomusic.eu">        
+        Reintentar
+      </v-btn>
+      <p class="second-paragraph">
+        Si el problema persiste, revisa tu conexión a internet.
+      </p>
+
+    </v-col>
+
+  </v-row>
+
 </template>
 
 <script>
@@ -22,6 +36,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.second-paragraph{
+  font-size: 16px !important;
+  color: #fafafa
+}
 </style>

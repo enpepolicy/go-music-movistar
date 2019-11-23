@@ -12,9 +12,9 @@
 
     <!-- Meter boton aceptar -->
     <v-dialog
-
+    persistent
     width="90vw"
-      v-model="dialog"
+    v-model="dialog"
     >
 
       <v-card dark>
@@ -26,12 +26,13 @@
         <span class="pl-4">Aviso de cookies</span>
 
           <v-btn
-            color="primary"
-            text
-            @click="dialog = false"
+          :disabled="popUpBtnLoading"
+          color="primary"
+          text
+          @click="exitPopUp"
           >
           <v-spacer/>
-            <v-icon>mdi-close</v-icon>
+            <v-icon >mdi-close</v-icon>
           </v-btn>
         </v-row>
         </v-card-title>
@@ -40,7 +41,12 @@
           “Utilizamos cookies propias y de terceros para mejorar el servicio y mostrarte publicidad personalizada basada en tu navegación. Si continuas navegando, aceptarás su uso. Más info o cambio de configuración <a  :href="`${publicPath}cookies.pdf`" target="_blank">aqui</a>”
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" @click="dialog = false">Aceptar</v-btn>
+          <v-btn
+          :loading="popUpBtnLoading"
+          color="primary"
+          @click="exitPopUp">
+            Aceptar
+          </v-btn>
         </v-card-actions>
 
       </v-card>
@@ -80,47 +86,63 @@ export default {
       infos: [],
       pagina: "",
       dialog: true,
-      publicPath: process.env.BASE_URL
+      publicPath: process.env.BASE_URL,
+      popUpBtnLoading: false
     }
   },
   methods: {
     ...mapMutations([
       'ACTUALIZA_USUARIO'
     ]),
-    // exitPopUp(){
-    //   console.log("cierre pop up")
-    // }
+    getUser(){
+      // Testing sin peticion de estado
+      this.payload.isAutenticated = true;
+      this.payload.isSubscribed = false;
+      this.payload.error = true;
+      // console.log(this.payload);
+      this.ACTUALIZA_USUARIO(this.payload)
+
+      this.dialog = false
+
+      this.checkError()
+
+      // axios.get('https://emocion.gomusic.eu/api/v1/storeCookie')
+      // .then(function (response) {
+      //   // handle success
+      //   this.payload.isAutenticated = response.data.isAutenticated;
+      //   this.payload.isSubscribed = response.data.isSubscribed;
+      //   this.payload.error = response.data.error;
+      //   // console.log(response);
+      //   this.ACTUALIZA_USUARIO(this.payload)
+
+      //   this.checkError()
+      //   this.dialog = false
+      //   this.popUpBtnLoading = false // por si acaso
+      // })
+      // .catch(function (error) {
+      //   // handle error
+      //   // console.log(error);
+      // })
+      // .finally(function () {
+      //   // always executed
+      // });
+    },
+    checkError(){
+      // console.log(this.payload.error)
+      if (this.payload.error) {
+        this.$router.push('Apaga-Wifi')
+      }
+    },
+    exitPopUp(){
+      this.popUpBtnLoading = true
+      this.getUser();
+    }
   },
   beforeUpdate: function(){
     this.pagina = window.location.pathname
   },
   updated: function(){
-
-      // Testing sin peticion de estado
-      // this.payload.isAutenticated = true;
-      // this.payload.isSubscribed = true;
-      // this.payload.error = true;
-      // // console.log(this.payload);
-      // this.ACTUALIZA_USUARIO(this.payload)
-
-
-    axios.get('https://emocion.gomusic.eu/api/v1/storeCookie')
-    .then(function (response) {
-      // handle success
-      this.payload.isAutenticated = response.data.isAutenticated;
-      this.payload.isSubscribed = response.data.isSubscribed;
-      this.payload.error = response.data.error;
-      // console.log(response);
-      this.ACTUALIZA_USUARIO(this.payload)
-    })
-    .catch(function (error) {
-      // handle error
-      // console.log(error);
-    })
-    .finally(function () {
-      // always executed
-    });
-
+    this.getUser();
   }
 };
 </script>
