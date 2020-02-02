@@ -98,7 +98,7 @@ export default {
       // Testing sin peticion de estado
       this.payload.isAutenticated = true;
       this.payload.isSubscribed = false;
-      this.payload.error = true;
+      this.payload.error = false;
       // console.log(this.payload);
       this.ACTUALIZA_USUARIO(this.payload)
 
@@ -161,7 +161,6 @@ h1{
 }
 .v-dialog {
   position: absolute;
-top: 0;
-left:0
+  top: 0;
 }
 </style>
